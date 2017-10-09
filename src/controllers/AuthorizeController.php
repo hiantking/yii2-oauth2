@@ -131,7 +131,8 @@ class AuthorizeController extends Controller
             }
         } else {
             //TODO: check if we should redirect to specific url with an error
-            $response = $this->redirect(['error']);
+            //$response = $this->redirect(['error']);
+            var_dump($error);
         }
         return $response;
     }

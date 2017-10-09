@@ -14,7 +14,6 @@
 namespace sweelix\oauth2\server;
 
 use sweelix\oauth2\server\services\Oauth;
-use sweelix\oauth2\server\services\Redis;
 use yii\base\BootstrapInterface;
 use yii\base\Module as BaseModule;
 use yii\console\Application as ConsoleApplication;
@@ -253,8 +252,9 @@ class Module extends BaseModule implements BootstrapInterface
         if ((Yii::$container->has('sweelix\oauth2\server\interfaces\UserModelInterface') === false) && ($this->identityClass !== null)) {
             Yii::$container->set('sweelix\oauth2\server\interfaces\UserModelInterface', $this->identityClass);
         }
-        if ($this->backend === 'redis') {
-            Redis::register($app);
+        if(!empty($this->backend)){
+            $backendClass = 'sweelix\oauth2\server\services\\' . ucwords($this->backend);
+            $backendClass::register($app);
         }
         Oauth::register($app);
 

@@ -31,7 +31,7 @@ use Yii;
  */
 class ClientController extends Controller
 {
-
+    public $clientId;
     public $redirectUri;
     public $grantTypes;
     public $scopes;
@@ -45,7 +45,7 @@ class ClientController extends Controller
     public function options($actionID)
     {
         return [
-            // Generated 'id',
+            'clientId',
             // Generated 'secret',
             'redirectUri',
             'grantTypes',
@@ -62,10 +62,9 @@ class ClientController extends Controller
      */
     public function actionCreate()
     {
-
         $client = Yii::createObject('sweelix\oauth2\server\interfaces\ClientModelInterface');
         /* @var \sweelix\oauth2\server\interfaces\ClientModelInterface $client */
-        $client->id = $this->getRandomString();
+        $client->id = empty($this->clientId) ? $this->generateSerialNumber() : $this->clientId;
         $client->secret = $this->getRandomString();
         $client->name = $this->name;
         $redirectUri = empty($this->redirectUri) ? null : explode(',', $this->redirectUri);
@@ -124,5 +123,22 @@ class ClientController extends Controller
     {
         $bytes = (int) $length/2;
         return bin2hex(openssl_random_pseudo_bytes($bytes));
+    }
+
+    /**
+     * 生成序号.
+     * @param string|null $key 扩展值.
+     * @return string 序号串.
+     */
+    protected function generateSerialNumber(){
+        $curMicroTime = microtime();        
+        list($micro,$curTime) = explode(' ', $curMicroTime);
+        $yearFirstSecondTime = strtotime(date("Y-01-01", $curTime));
+        $secondTime = $curTime - $yearFirstSecondTime + $micro;        
+        $year = date("Y", $curTime);
+        $secondTime = ($secondTime * 30000) . '.';
+        $key = strchr($secondTime,'.',true);
+        $key = str_pad($key, 12,'0', STR_PAD_RIGHT);
+        return $year . $key;
     }
 }
