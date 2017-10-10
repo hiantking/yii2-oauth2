@@ -3,13 +3,13 @@ Oauth2 Yii2 integration
 
 This extension allow the developper to use [Oauth2](https://bshaffer.github.io/oauth2-server-php-docs/) server.
 
-[![Latest Stable Version](https://poser.pugx.org/heihei/yii2-oauth2-server/v/stable)](https://packagist.org/packages/heihei/yii2-oauth2-server)
-[![Build Status](https://api.travis-ci.org/heiheisoft/yii2-oauth2.svg?branch=master)](https://travis-ci.org/heiheisoft/yii2-oauth2)
-[![License](https://poser.pugx.org/heihei/yii2-oauth2-server/license)](https://packagist.org/packages/heihei/yii2-oauth2-server)
+[![Latest Stable Version](https://poser.pugx.org/hianto2o/yii2-oauth2-server/v/stable)](https://packagist.org/packages/hianto2o/yii2-oauth2-server)
+[![Build Status](https://api.travis-ci.org/hianto2o/yii2-oauth2.svg?branch=master)](https://travis-ci.org/hianto2o/yii2-oauth2)
+[![License](https://poser.pugx.org/hianto2o/yii2-oauth2-server/license)](https://packagist.org/packages/hianto2o/yii2-oauth2-server)
 
-[![Latest Development Version](https://img.shields.io/badge/unstable-devel-yellowgreen.svg)](https://packagist.org/packages/heihei/yii2-oauth2-server)
-[![Build Status](https://travis-ci.org/heiheisoft/yii2-oauth2.svg?branch=devel)](https://travis-ci.org/heiheisoft/yii2-oauth2)
-[![composer.lock](https://poser.pugx.org/heihei/yii2-oauth2-server/composerlock)](https://packagist.org/packages/heihei/yii2-oauth2-server)
+[![Latest Development Version](https://img.shields.io/badge/unstable-devel-yellowgreen.svg)](https://packagist.org/packages/hianto2o/yii2-oauth2-server)
+[![Build Status](https://travis-ci.org/hianto2o/yii2-oauth2.svg?branch=devel)](https://travis-ci.org/hianto2o/yii2-oauth2)
+[![composer.lock](https://poser.pugx.org/hianto2o/yii2-oauth2-server/composerlock)](https://packagist.org/packages/hianto2o/yii2-oauth2-server)
 
 Installation
 ------------
@@ -19,7 +19,7 @@ If you use Packagist for installing packages, then you can update your composer.
 ``` json
 {
     "require": {
-        "heihei/yii2-oauth2-server": "~2.0.0"
+        "hianto2o/yii2-oauth2-server": "~2.0.0"
     }
 }
 ```
